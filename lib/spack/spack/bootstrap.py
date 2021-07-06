@@ -845,7 +845,9 @@ def ensure_mypy_in_path_or_raise():
 
 
 def black_root_spec():
-    return _root_spec('py-black')
+    # black v21 is the last version to support Python 2.7.
+    # Upgrade when we no longer support Python 2.7
+    return _root_spec('py-black@:21')
 
 
 def ensure_black_in_path_or_raise():
