@@ -14,12 +14,12 @@ import spack.config
 import spack.error
 import spack.paths
 
-from llnl.util.lock import *  # noqa
+from llnl.util.lock import ReadTransaction, WriteTransaction  # noqa: F401
 
 is_windows = sys.platform == 'win32'
 
 
-class Lock(llnl.util.lock.Lock):  # type: ignore[no-redef]
+class Lock(llnl.util.lock.Lock):
     """Lock that can be disabled.
 
     This overrides the ``_lock()`` and ``_unlock()`` methods from
